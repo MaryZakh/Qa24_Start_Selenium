@@ -13,7 +13,7 @@ public class Index {
     @BeforeClass
     public void setUp(){
         wd = new ChromeDriver();
-        wd.get("file:///Volumes/GoogleDrive/%D0%9C%D0%BE%D0%B8%CC%86%20%D0%B4%D0%B8%D1%81%D0%BA/Tel-Ran/Automated%20testing/21.index.html");
+        wd.get("C:/Users/marii/Downloads/21.index.html");
     }
 
     @Test
@@ -45,7 +45,7 @@ public class Index {
         WebElement divEl = wd.findElement(By.cssSelector("[class='container']"));
         WebElement input = wd.findElement(By.cssSelector("[placeholder='Type your name']"));
         //start
-        WebElement input4 = wd.findElement(By.cssSelector("[placeholder ^6 = 'Type']"));
+        WebElement input4 = wd.findElement(By.cssSelector("[placeholder ^= 'Type']"));
         WebElement divEl1 = wd.findElement(By.cssSelector("[class ^= 'cont']"));
         //end
         WebElement input5 = wd.findElement(By.cssSelector("[placeholder $= 'name']"));
