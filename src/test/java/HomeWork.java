@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.SplittableRandom;
 
 public class HomeWork {
 
@@ -24,9 +25,12 @@ public class HomeWork {
         //by tag name
         WebElement body = wd.findElement(By.tagName("body"));
         WebElement body1 = wd.findElement(By.cssSelector("body"));
+        WebElement body2 = wd.findElement(By.xpath("//body"));
 
         WebElement div = wd.findElement(By.tagName("div"));
         WebElement div1 = wd.findElement(By.cssSelector("div"));
+        WebElement div2 = wd.findElement(By.xpath("//div"));
+
 
         WebElement h1 = wd.findElement(By.tagName("h1"));
         WebElement h1_2 = wd.findElement(By.cssSelector("h1"));
@@ -36,12 +40,15 @@ public class HomeWork {
         WebElement a = wd.findElement(By.tagName("a"));
         WebElement a_1 = wd.findElement(By.cssSelector("a"));
         List<WebElement>list = wd.findElements(By.tagName("a"));
+        WebElement a_2 = wd.findElement(By.xpath("//a"));
 
         WebElement form = wd.findElement(By.tagName("form"));
         WebElement form1 = wd.findElement(By.cssSelector("form"));
+        WebElement form2 = wd.findElement(By.xpath("//form"));
 
         WebElement input = wd.findElement(By.tagName("input"));
         WebElement input1 = wd.findElement(By.cssSelector("input"));
+        WebElement input2 = wd.findElement(By.xpath("//input"));
 
         WebElement button = wd.findElement(By.tagName("button"));
         WebElement button1 = wd.findElement(By.cssSelector("button"));
@@ -54,9 +61,11 @@ public class HomeWork {
 
         WebElement el2 = wd.findElement(By.className("navbar-component_nav__1X_4m"));
         WebElement el3 = wd.findElement(By.cssSelector(".navbar-component_nav__1X_4m"));
+        WebElement el3_1 = wd.findElement(By.xpath("//*[@class='navbar-component_nav__1X_4m']"));
 
         WebElement el4 = wd.findElement(By.className("login_login__3EHKB"));
         WebElement el5 = wd.findElement(By.cssSelector(".login_login__3EHKB"));
+        WebElement el5_1 = wd.findElement(By.xpath("//*[@class='login_login__3EHKB']"));
 
 
         //by id
@@ -70,9 +79,11 @@ public class HomeWork {
 
         WebElement el9 = wd.findElement(By.cssSelector("[href='/home']"));
         WebElement el10 = wd.findElement(By.cssSelector("[href='/about']"));
+        WebElement el10_1 = wd.findElement(By.xpath("//*[@href='/about']"));
 
         WebElement el11 = wd.findElement(By.cssSelector("[name='email']"));
         WebElement el12 = wd.findElement(By.name("email"));
+        WebElement el12_1 = wd.findElement(By.xpath("//*[@name='email']"));
 
         //one of elements find by attribute ==> start & end & contains value
         WebElement el13 = wd.findElement(By.cssSelector("[placeholder='Email']"));
@@ -94,6 +105,54 @@ public class HomeWork {
 
         //by text
         WebElement el25 = wd.findElement(By.xpath("//a[text()='ABOUT']"));
+    }
+
+
+    @Test
+    public void classwork(){
+        //parent
+
+        WebElement el = wd.findElement(By.xpath("//h1/.."));
+        WebElement el1 = wd.findElement(By.xpath("//h1/parent::div"));
+        WebElement el2 = wd.findElement(By.xpath("//h1/parent::*"));
+
+        //ancestor
+
+        WebElement el3 = wd.findElement(By.xpath("//h1/ancestor::*"));//all
+        WebElement el4 = wd.findElement(By.xpath("//h1/ancestor::div"));//two options
+        WebElement el5 = wd.findElement(By.xpath("//h1/ancestor::div[1]"));//one option
+
+        //ancestor-or-self
+        WebElement el6 = wd.findElement(By.xpath("//h1/ancestor-or-self::*"));
+        List<WebElement> list = wd.findElements(By.xpath("//h1/ancestor-or-self::*"));
+
+        //following-sibling
+        List<WebElement> list1 = wd.findElements(By.xpath("//h1/following-sibling::a"));
+
+        //preceding-sibling
+        WebElement el7 = wd.findElement(By.xpath("//a[last()]/preceding-sibling::h1"));
+        List<WebElement> list2 = wd.findElements(By.xpath("//a[last()]/preceding-sibling::h1"));
+
+    }
+
+    @Test
+    public void classwork2(){
+    WebElement button = wd.findElement(By.cssSelector("[name='login']"));
+    String text = button.getText();
+        System.out.println(text);
+
+        WebElement form = wd.findElement(By.tagName("form"));
+        String text1 = form.getText();
+        System.out.println(text1);
+
+
+        WebElement html = wd.findElement(By.cssSelector("html"));
+        String text2 = html.getText();
+        System.out.println(text2);
+
+        WebElement br = wd.findElement(By.tagName("br"));
+        System.out.println("text br--->"+ br.getText());
+
     }
 
 }
